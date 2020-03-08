@@ -10,13 +10,18 @@ fi
 
 VER=v1.9
 
-links=(Dockerfile entrypoint.sh plugins/parser_kubernetes.rb
-       plugins/parser_multiline_kubernetes.rb)
+links=(Dockerfile entrypoint.sh
+       plugins/{parser_kubernetes.rb,parser_multiline_kubernetes.rb}
+       conf/{kubernetes,prometheus,systemd}.conf)
 
-mkdir -p ./plugins
+mkdir -p ./{conf,plugins}
 
 for l in ${links[@]}; do
-  ln -sf fluentd-kubernetes-daemonset/docker-image/$VER/debian-cloudwatch/$l $l
+  if [[ $l =~ '/' ]]; then
+    ln -sf ../fluentd-kubernetes-daemonset/docker-image/$VER/debian-cloudwatch/$l $l
+  else
+    ln -sf fluentd-kubernetes-daemonset/docker-image/$VER/debian-cloudwatch/$l $l
+  fi
 done
 
 exit 0
