@@ -17,11 +17,7 @@ links=(Dockerfile entrypoint.sh
 mkdir -p ./{conf,plugins}
 
 for l in ${links[@]}; do
-  if [[ $l =~ '/' ]]; then
-    ln -sf ../fluentd-kubernetes-daemonset/docker-image/$VER/debian-cloudwatch/$l $l
-  else
-    ln -sf fluentd-kubernetes-daemonset/docker-image/$VER/debian-cloudwatch/$l $l
-  fi
+  cat fluentd-kubernetes-daemonset/docker-image/$VER/debian-cloudwatch/$l > $l
 done
 
 exit 0

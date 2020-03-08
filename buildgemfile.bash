@@ -16,7 +16,4 @@ cat fluentd-kubernetes-daemonset/docker-image/$VER/debian-cloudwatch/Gemfile > G
 # now add everything added by loggly
 diff fluentd-kubernetes-daemonset/docker-image/$VER/debian-{cloudwatch,loggly}/Gemfile | grep ^\> | sed 's/^..//' >> Gemfile
 
-# we also need the kubernetes plugin
-echo 'gem "fluent-plugin-kubernetes"' >> Gemfile
-
 exit 0
