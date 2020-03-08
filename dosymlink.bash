@@ -20,4 +20,6 @@ for l in ${links[@]}; do
   cat fluentd-kubernetes-daemonset/docker-image/$VER/debian-cloudwatch/$l > $l
 done
 
+chmod +x entrypoint.sh
+
 exit 0
