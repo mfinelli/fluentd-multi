@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash
 
 # inspect the diff between the desired plugins
 # usage: ./checkdiff.bash
@@ -9,5 +9,6 @@ if [[ $# -ne 0 ]]; then
 fi
 
 diff -r fluentd-kubernetes-daemonset/docker-image/v1.9/debian-{cloudwatch,loggly}
+diff -r fluentd-kubernetes-daemonset/docker-image/v1.9/debian-{cloudwatch,gcs}
 
 exit 0

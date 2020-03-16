@@ -16,4 +16,7 @@ cat fluentd-kubernetes-daemonset/docker-image/$VER/debian-cloudwatch/Gemfile > G
 # now add everything added by loggly
 diff fluentd-kubernetes-daemonset/docker-image/$VER/debian-{cloudwatch,loggly}/Gemfile | grep ^\> | sed 's/^..//' >> Gemfile
 
+# now add gcs
+diff fluentd-kubernetes-daemonset/docker-image/$VER/debian-{cloudwatch,gcs}/Gemfile | grep ^\> | sed 's/^..//' >> Gemfile
+
 exit 0
