@@ -8,7 +8,7 @@ if [[ $# -ne 0 ]]; then
   exit 1
 fi
 
-VER=v1.9
+VER=v1.10
 
 links=(Dockerfile entrypoint.sh
        plugins/{parser_kubernetes.rb,parser_multiline_kubernetes.rb}
