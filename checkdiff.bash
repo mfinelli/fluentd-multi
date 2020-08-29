@@ -8,7 +8,7 @@ if [[ $# -ne 0 ]]; then
   exit 1
 fi
 
-diff -r fluentd-kubernetes-daemonset/docker-image/v1.10/debian-{cloudwatch,loggly}
-diff -r fluentd-kubernetes-daemonset/docker-image/v1.10/debian-{cloudwatch,gcs}
+diff -r fluentd-kubernetes-daemonset/docker-image/v1.11/debian-{cloudwatch,loggly}
+diff -r fluentd-kubernetes-daemonset/docker-image/v1.11/debian-{cloudwatch,gcs}
 
 exit 0
