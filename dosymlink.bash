@@ -20,8 +20,13 @@ for l in ${links[@]}; do
   cat fluentd-kubernetes-daemonset/docker-image/$VER/debian-cloudwatch/$l > $l
 done
 
-# use latest bundler
-# sed -i '' 's/gem install bundler --version 2.1.2/gem install bundler --version 2.1.4/' Dockerfile
+if [[ $(uname) == Darwin ]]; then
+  sed -i '' 's/gem install bundler --version 2.1.2/gem install bundler --version 2.1.4/' Dockerfile
+  sed -i '' 's/maintainer=".*"/maintainer="Mario Finelli"/' Dockerfile
+else
+  sed -i 's/gem install bundler --version 2.1.2/gem install bundler --version 2.1.4/' Dockerfile
+  sed -i 's/maintainer=".*"/maintainer="Mario Finelli"/' Dockerfile
+fi
 
 chmod +x entrypoint.sh
 
