@@ -10,7 +10,7 @@ between plugins with `./checkdiff.bash`.
 Symlink common files into place with `dosymlink.bash`.
 
 Build a common gemfile that includes all plugins with `buildgemfile.bash` and
-then bundle to update the Gemfile.log.
+then bundle to update the Gemfile.lock.
 
 Then, manually combine the `conf/fluent.conf` files as desired.
 

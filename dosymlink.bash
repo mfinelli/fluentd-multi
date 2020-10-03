@@ -21,7 +21,7 @@ for l in ${links[@]}; do
 done
 
 # use latest bundler
-sed -i '' 's/gem install bundler --version 2.1.2/gem install bundler --version 2.1.4/' Dockerfile
+# sed -i '' 's/gem install bundler --version 2.1.2/gem install bundler --version 2.1.4/' Dockerfile
 
 chmod +x entrypoint.sh
 
