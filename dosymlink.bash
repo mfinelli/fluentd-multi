@@ -8,11 +8,11 @@ if [[ $# -ne 0 ]]; then
   exit 1
 fi
 
-VER=v1.11
+VER=v1.12
 
 links=(Dockerfile entrypoint.sh
        plugins/{parser_kubernetes.rb,parser_multiline_kubernetes.rb}
-       conf/{kubernetes,prometheus,systemd}.conf)
+       conf/{kubernetes,prometheus,systemd,tail_container_parse}.conf)
 
 mkdir -p ./{conf,plugins}
 
@@ -21,10 +21,10 @@ for l in ${links[@]}; do
 done
 
 if [[ $(uname) == Darwin ]]; then
-  sed -i '' 's/gem install bundler --version 2.1.2/gem install bundler --version 2.1.4/' Dockerfile
+  sed -i '' 's/gem install bundler --version 2.2.6/gem install bundler --version 2.2.15/' Dockerfile
   sed -i '' 's/maintainer=".*"/maintainer="Mario Finelli"/' Dockerfile
 else
-  sed -i 's/gem install bundler --version 2.1.2/gem install bundler --version 2.1.4/' Dockerfile
+  sed -i 's/gem install bundler --version 2.2.6/gem install bundler --version 2.2.15/' Dockerfile
   sed -i 's/maintainer=".*"/maintainer="Mario Finelli"/' Dockerfile
 fi
 
