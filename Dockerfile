@@ -4,6 +4,7 @@
 FROM fluent/fluentd:v1.12.3-debian-1.0
 
 LABEL maintainer="Mario Finelli"
+LABEL org.opencontainers.image.source https://github.com/mfinelli/fluentd-multi
 USER root
 WORKDIR /home/fluent
 ENV PATH /fluentd/vendor/bundle/ruby/2.6.0/bin:$PATH
@@ -20,7 +21,7 @@ RUN buildDeps="sudo make gcc g++ libc-dev libffi-dev" \
      && apt-get install \
      -y --no-install-recommends \
      $buildDeps $runtimeDeps net-tools \
-    && gem install bundler --version 2.2.15 \
+    && gem install bundler --version 2.2.17 \
     && bundle config silence_root_warning true \
     && bundle install --gemfile=/fluentd/Gemfile --path=/fluentd/vendor/bundle \
     && SUDO_FORCE_REMOVE=yes \
